@@ -1,14 +1,17 @@
 ### Usage
 
-#### Required for persistant volumes:
+#### This branch (nfs) doesn't rely on any cloud provider
 
-```
-gcloud compute disks create --size 50GB pipelines-pfi-artifactory --project YOUR_GCLOUD_PROJECT --zone YOUR_K8S_ZONE
+This means that we need nfs (for persistant volumes, see nfs-pv-pvc.yaml)
 
-gcloud compute disks create --size 50GB pipelines-pfi-mysql --project YOUR_GCLOUD_PROJECT --zone YOUR_K8S_ZONE
-```
+Also, we need an ingress controller in the cluster (see below)
+
+Lastly, if we want to deploy to a master we need a DNS entry for the host that the cluster can reach (see dns-hack.yml)
 
 #### Installation:
+
+First, setup an ingress controller as described here: https://github.com/nginxinc/kubernetes-ingress/blob/master/docs/installation.md
+**note ingress controllers only work in the namespace they run in, so change the namespace to 'pfi'
 
 Put this in a kubernetes cluster by cloning the project.
 

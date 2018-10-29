@@ -20,7 +20,6 @@ spec:
           - mountPath: /var/opt/jfrog/artifactory
             name: artifactory-volumemount
       volumes:
-        - gcePersistentDisk:
-            fsType: ext4
-            pdName: pipelines-pfi-artifactory
+        - persistentVolumeClaim:
+            claimName: nfs
           name: artifactory-volumemount

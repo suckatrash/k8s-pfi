@@ -43,7 +43,6 @@ spec:
               key: MYSQL_DATABASE
               name: mysql-pfi-backend-config
       volumes:
-        - gcePersistentDisk:
-            fsType: ext4
-            pdName: pipelines-pfi-mysql
+        - persistentVolumeClaim:
+            claimName: nfs-mysql
           name: mysql-volumemount

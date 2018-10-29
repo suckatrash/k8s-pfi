@@ -1,0 +1,28 @@
+apiVersion: extensions/v1beta1
+kind: Ingress
+metadata:
+  name: artifactory-ingress
+  namespace: pfi
+spec:
+  rules:
+  - host: artifactory.test.io
+    http:
+      paths:
+        - path: /
+          backend:
+            serviceName: artifactory-service
+            servicePort: 8081
+  - host: cd4pe.test.io
+    http:
+      paths:
+        - path: /
+          backend:
+            serviceName: pfi-service
+            servicePort: 8080
+  - host: backend.test.io
+    http:
+      paths:
+        - path: /
+          backend:
+            serviceName: pfi-backend
+            servicePort: 8000

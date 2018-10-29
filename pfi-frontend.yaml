@@ -4,7 +4,7 @@ metadata:
   name: pfi-deployment
   namespace: pfi
 spec:
-  replicas: 1
+  replicas: 2
   template:
     metadata:
       labels:
